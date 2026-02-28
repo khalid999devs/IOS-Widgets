@@ -10,6 +10,9 @@
 		5BD07EAA2F50DE74006BE706 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EA92F50DE74006BE706 /* WidgetKit.framework */; };
 		5BD07EAC2F50DE74006BE706 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EAB2F50DE74006BE706 /* SwiftUI.framework */; };
 		5BD07EBD2F50DE75006BE706 /* MainLiftoffRankWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5BD07EA72F50DE73006BE706 /* MainLiftoffRankWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5BD07ECA2F524BA4006BE706 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EA92F50DE74006BE706 /* WidgetKit.framework */; };
+		5BD07ECB2F524BA4006BE706 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EAB2F50DE74006BE706 /* SwiftUI.framework */; };
+		5BD07EDC2F524BA5006BE706 /* MainLiftoffRankWidgetMascotExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5BD07EC92F524BA4006BE706 /* MainLiftoffRankWidgetMascotExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -19,6 +22,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5BD07EA62F50DE73006BE706;
 			remoteInfo = MainLiftoffRankWidgetExtension;
+		};
+		5BD07EDA2F524BA5006BE706 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BD07E8D2F50DE43006BE706 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BD07EC82F524BA4006BE706;
+			remoteInfo = MainLiftoffRankWidgetMascotExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -30,6 +40,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				5BD07EBD2F50DE75006BE706 /* MainLiftoffRankWidgetExtension.appex in Embed Foundation Extensions */,
+				5BD07EDC2F524BA5006BE706 /* MainLiftoffRankWidgetMascotExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,6 +52,7 @@
 		5BD07EA72F50DE73006BE706 /* MainLiftoffRankWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MainLiftoffRankWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD07EA92F50DE74006BE706 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		5BD07EAB2F50DE74006BE706 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		5BD07EC92F524BA4006BE706 /* MainLiftoffRankWidgetMascotExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MainLiftoffRankWidgetMascotExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -50,6 +62,13 @@
 				Info.plist,
 			);
 			target = 5BD07EA62F50DE73006BE706 /* MainLiftoffRankWidgetExtension */;
+		};
+		5BD07EDD2F524BA5006BE706 /* Exceptions for "MainLiftoffRankWidgetMascot" folder in "MainLiftoffRankWidgetMascotExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5BD07EC82F524BA4006BE706 /* MainLiftoffRankWidgetMascotExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -65,6 +84,14 @@
 				5BD07EBE2F50DE75006BE706 /* Exceptions for "MainLiftoffRankWidget" folder in "MainLiftoffRankWidgetExtension" target */,
 			);
 			path = MainLiftoffRankWidget;
+			sourceTree = "<group>";
+		};
+		5BD07ECC2F524BA4006BE706 /* MainLiftoffRankWidgetMascot */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5BD07EDD2F524BA5006BE706 /* Exceptions for "MainLiftoffRankWidgetMascot" folder in "MainLiftoffRankWidgetMascotExtension" target */,
+			);
+			path = MainLiftoffRankWidgetMascot;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -86,6 +113,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5BD07EC62F524BA4006BE706 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BD07ECB2F524BA4006BE706 /* SwiftUI.framework in Frameworks */,
+				5BD07ECA2F524BA4006BE706 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -94,6 +130,7 @@
 			children = (
 				5BD07E972F50DE43006BE706 /* LiftoffTemplate */,
 				5BD07EAD2F50DE74006BE706 /* MainLiftoffRankWidget */,
+				5BD07ECC2F524BA4006BE706 /* MainLiftoffRankWidgetMascot */,
 				5BD07EA82F50DE74006BE706 /* Frameworks */,
 				5BD07E962F50DE43006BE706 /* Products */,
 			);
@@ -104,6 +141,7 @@
 			children = (
 				5BD07E952F50DE43006BE706 /* LiftoffTemplate.app */,
 				5BD07EA72F50DE73006BE706 /* MainLiftoffRankWidgetExtension.appex */,
+				5BD07EC92F524BA4006BE706 /* MainLiftoffRankWidgetMascotExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +171,7 @@
 			);
 			dependencies = (
 				5BD07EBC2F50DE75006BE706 /* PBXTargetDependency */,
+				5BD07EDB2F524BA5006BE706 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				5BD07E972F50DE43006BE706 /* LiftoffTemplate */,
@@ -166,6 +205,28 @@
 			productReference = 5BD07EA72F50DE73006BE706 /* MainLiftoffRankWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		5BD07EC82F524BA4006BE706 /* MainLiftoffRankWidgetMascotExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BD07EDE2F524BA5006BE706 /* Build configuration list for PBXNativeTarget "MainLiftoffRankWidgetMascotExtension" */;
+			buildPhases = (
+				5BD07EC52F524BA4006BE706 /* Sources */,
+				5BD07EC62F524BA4006BE706 /* Frameworks */,
+				5BD07EC72F524BA4006BE706 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5BD07ECC2F524BA4006BE706 /* MainLiftoffRankWidgetMascot */,
+			);
+			name = MainLiftoffRankWidgetMascotExtension;
+			packageProductDependencies = (
+			);
+			productName = MainLiftoffRankWidgetMascotExtension;
+			productReference = 5BD07EC92F524BA4006BE706 /* MainLiftoffRankWidgetMascotExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -180,6 +241,9 @@
 						CreatedOnToolsVersion = 26.2;
 					};
 					5BD07EA62F50DE73006BE706 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					5BD07EC82F524BA4006BE706 = {
 						CreatedOnToolsVersion = 26.2;
 					};
 				};
@@ -200,6 +264,7 @@
 			targets = (
 				5BD07E942F50DE43006BE706 /* LiftoffTemplate */,
 				5BD07EA62F50DE73006BE706 /* MainLiftoffRankWidgetExtension */,
+				5BD07EC82F524BA4006BE706 /* MainLiftoffRankWidgetMascotExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -213,6 +278,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5BD07EA52F50DE73006BE706 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BD07EC72F524BA4006BE706 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -236,6 +308,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5BD07EC52F524BA4006BE706 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -243,6 +322,11 @@
 			isa = PBXTargetDependency;
 			target = 5BD07EA62F50DE73006BE706 /* MainLiftoffRankWidgetExtension */;
 			targetProxy = 5BD07EBB2F50DE75006BE706 /* PBXContainerItemProxy */;
+		};
+		5BD07EDB2F524BA5006BE706 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BD07EC82F524BA4006BE706 /* MainLiftoffRankWidgetMascotExtension */;
+			targetProxy = 5BD07EDA2F524BA5006BE706 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -492,6 +576,66 @@
 			};
 			name = Release;
 		};
+		5BD07EDF2F524BA5006BE706 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 474KTUB9B4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MainLiftoffRankWidgetMascot/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MainLiftoffRankWidgetMascot;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.khalid.cpp.LiftoffTemplate.MainLiftoffRankWidgetMascot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BD07EE02F524BA5006BE706 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 474KTUB9B4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MainLiftoffRankWidgetMascot/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MainLiftoffRankWidgetMascot;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.khalid.cpp.LiftoffTemplate.MainLiftoffRankWidgetMascot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -518,6 +662,15 @@
 			buildConfigurations = (
 				5BD07EC02F50DE75006BE706 /* Debug */,
 				5BD07EC12F50DE75006BE706 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BD07EDE2F524BA5006BE706 /* Build configuration list for PBXNativeTarget "MainLiftoffRankWidgetMascotExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BD07EDF2F524BA5006BE706 /* Debug */,
+				5BD07EE02F524BA5006BE706 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
