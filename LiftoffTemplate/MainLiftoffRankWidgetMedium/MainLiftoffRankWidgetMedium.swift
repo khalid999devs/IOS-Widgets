@@ -22,7 +22,7 @@ struct SimpleEntry: TimelineEntry {
     let configuration: ConfigurationAppIntent
 }
 
-struct MainLiftoffRankWidgetMascotMediumEntryView: View {
+struct MainLiftoffRankWidgetMediumEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
@@ -47,31 +47,25 @@ struct MainLiftoffRankWidgetMascotMediumEntryView: View {
             let glowW = 97.0 * s
             let glowH = 96.0 * s
             let glowBlur = 25.0 * s
-            let glowX = originX + (38.5 * s)
-            let glowY = originY + (26.0 * s)
 
             let badgeW = 183.2 * s
             let badgeH = 157.0 * s
+
+            let glowX = originX + (38.5 * s)
             let badgeX = originX + (-4.5 * s)
-            let badgeY = originY + (-4.0 * s)
 
-            let jymboW = 157.34 * s
-            let jymboH = 192.04 * s
-            let jymboX = originX + (8.77 * s)
-            let jymboY = originY + (40.0 * s)
-
-            let jymboEffectW = 128.0 * s
-            let jymboEffectX = originX + ((8.77 + ((157.34 - 128.0) / 2.0)) * s)
-            let jymboEffectY = originY + (91.0 * s)
+            let centerY = originY + (layoutH / 2.0)
+            let glowY = centerY - ((glowH - 10.0) / 2.0)
+            let badgeY = centerY - (badgeH / 2.0)
 
             let shadingW = baseW * s
             let shadingH = 105.0 * s
-            let shadingX = originX + (0.0 * s)
+            let shadingX = originX
             let shadingY = originY + (76.0 * s)
 
             let shading2W = baseW * s
             let shading2H = 86.0 * s
-            let shading2X = originX + (0.0 * s)
+            let shading2X = originX
             let shading2Y = originY + (96.0 * s)
 
             ZStack(alignment: .topLeading) {
@@ -108,12 +102,6 @@ struct MainLiftoffRankWidgetMascotMediumEntryView: View {
                     .offset(x: shadingX, y: shadingY)
                     .blendMode(.multiply)
 
-                Image("jymbo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: jymboW, height: jymboH)
-                    .offset(x: jymboX, y: jymboY)
-
                 Rectangle()
                     .fill(
                         LinearGradient(
@@ -128,13 +116,6 @@ struct MainLiftoffRankWidgetMascotMediumEntryView: View {
                     .frame(width: shading2W, height: shading2H)
                     .offset(x: shading2X, y: shading2Y)
                     .blendMode(.multiply)
-
-                Image("jymboEffect")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: jymboEffectW)
-                    .offset(x: jymboEffectX, y: jymboEffectY)
-                    .allowsHitTesting(false)
             }
             .frame(width: w, height: h)
         }
@@ -451,12 +432,12 @@ private struct AvatarCircle: View {
     }
 }
 
-struct MainLiftoffRankWidgetMascotMedium: Widget {
-    let kind: String = "MainLiftoffRankWidgetMascotMedium"
+struct MainLiftoffRankWidgetMedium: Widget {
+    let kind: String = "MainLiftoffRankWidgetMedium"
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            MainLiftoffRankWidgetMascotMediumEntryView(entry: entry)
+            MainLiftoffRankWidgetMediumEntryView(entry: entry)
         }
         .supportedFamilies([.systemMedium])
         .contentMarginsDisabled()
@@ -473,7 +454,7 @@ private extension Color {
 }
 
 #Preview(as: .systemMedium) {
-    MainLiftoffRankWidgetMascotMedium()
+    MainLiftoffRankWidgetMedium()
 } timeline: {
     SimpleEntry(date: .now, configuration: ConfigurationAppIntent())
 }
