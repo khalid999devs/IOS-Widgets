@@ -1,16 +1,39 @@
 import WidgetKit
 import SwiftUI
+import AppIntents
+
+enum WidgetMode: String, AppEnum {
+    case minimal
+    case mascot
+
+    static var typeDisplayRepresentation: TypeDisplayRepresentation { "Mode" }
+
+    static var caseDisplayRepresentations: [WidgetMode: DisplayRepresentation] {
+        [
+            .minimal: "Minimal",
+            .mascot: "Mascot"
+        ]
+    }
+}
+
+struct NextRankUpConfigurationIntent: WidgetConfigurationIntent {
+    static var title: LocalizedStringResource = "Next Rank Up"
+    static var description = IntentDescription("Widget mode")
+
+    @Parameter(title: "Mode")
+    var mode: WidgetMode?
+}
 
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: .now, configuration: ConfigurationAppIntent())
+        SimpleEntry(date: .now, configuration: NextRankUpConfigurationIntent())
     }
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
+    func snapshot(for configuration: NextRankUpConfigurationIntent, in context: Context) async -> SimpleEntry {
         SimpleEntry(date: .now, configuration: configuration)
     }
 
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
+    func timeline(for configuration: NextRankUpConfigurationIntent, in context: Context) async -> Timeline<SimpleEntry> {
         let entry = SimpleEntry(date: .now, configuration: configuration)
         return Timeline(entries: [entry], policy: .after(.now.addingTimeInterval(60 * 60)))
     }
@@ -18,7 +41,7 @@ struct Provider: AppIntentTimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationAppIntent
+    let configuration: NextRankUpConfigurationIntent
 }
 
 struct NextRankUpWidgetEntryView: View {
@@ -29,12 +52,11 @@ struct NextRankUpWidgetEntryView: View {
             let w = geo.size.width
             let h = geo.size.height
 
-            let baseW: CGFloat = 170.0
-            let baseH: CGFloat = 170.0
+            let base: CGFloat = 170.0
+            let s = min(w / base, h / base)
 
-            let s = min(w / baseW, h / baseH)
-            let layoutW = baseW * s
-            let layoutH = baseH * s
+            let layoutW = base * s
+            let layoutH = base * s
             let originX = (w - layoutW) / 2.0
             let originY = (h - layoutH) / 2.0
 
@@ -49,6 +71,13 @@ struct NextRankUpWidgetEntryView: View {
             let titleTopY = originY + (16.0 * s)
             let titleCenterX = originX + (layoutW / 2.0)
             let titleCenterY = titleTopY + (titleH / 2.0)
+
+            let jymboW = 133 * s
+            let jymboH = 110 * s
+            let jymboX = originX + (37.47 * s)
+            let jymboY = originY + (61.84 * s)
+            let jymboCenterX = jymboX + (jymboW / 2.0)
+            let jymboCenterY = jymboY + (jymboH / 2.0)
 
             ZStack(alignment: .topLeading) {
                 Image("champTitanBg")
@@ -70,6 +99,15 @@ struct NextRankUpWidgetEntryView: View {
                     .scaledToFit()
                     .frame(width: starsW, height: starsH)
                     .offset(x: starsX, y: starsY)
+
+                if (entry.configuration.mode ?? .mascot) == .mascot {
+                    Image("jymbo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: jymboW, height: jymboH)
+                        .position(x: jymboCenterX, y: jymboCenterY)
+                        .allowsHitTesting(false)
+                }
             }
             .frame(width: w, height: h)
         }
@@ -81,7 +119,7 @@ struct NextRankUpWidget: Widget {
     let kind: String = "NextRankUpWidget"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
+        AppIntentConfiguration(kind: kind, intent: NextRankUpConfigurationIntent.self, provider: Provider()) { entry in
             NextRankUpWidgetEntryView(entry: entry)
         }
         .supportedFamilies([.systemSmall])
@@ -92,5 +130,15 @@ struct NextRankUpWidget: Widget {
 #Preview(as: .systemSmall) {
     NextRankUpWidget()
 } timeline: {
-    SimpleEntry(date: .now, configuration: ConfigurationAppIntent())
+    SimpleEntry(date: .now, configuration: {
+        var i = NextRankUpConfigurationIntent()
+        i.mode = .mascot
+        return i
+    }())
+
+    SimpleEntry(date: .now, configuration: {
+        var i = NextRankUpConfigurationIntent()
+        i.mode = .minimal
+        return i
+    }())
 }
