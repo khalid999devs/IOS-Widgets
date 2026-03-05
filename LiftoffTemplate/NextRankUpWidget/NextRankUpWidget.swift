@@ -72,8 +72,15 @@ struct NextRankUpWidgetEntryView: View {
             let titleCenterX = originX + (layoutW / 2.0)
             let titleCenterY = titleTopY + (titleH / 2.0)
 
-            let jymboW = 133 * s
-            let jymboH = 110 * s
+            let iconW = 92.38 * s
+            let iconH = 103.89 * s
+            let iconX = originX + (38.62 * s)
+            let iconY = originY + (38.38 * s)
+            let iconCenterX = iconX + (iconW / 2.0)
+            let iconCenterY = iconY + (iconH / 2.0)
+
+            let jymboW = 133.0 * s
+            let jymboH = 110.0 * s
             let jymboX = originX + (37.47 * s)
             let jymboY = originY + (61.84 * s)
             let jymboCenterX = jymboX + (jymboW / 2.0)
@@ -85,6 +92,12 @@ struct NextRankUpWidgetEntryView: View {
                     .scaledToFill()
                     .frame(width: w, height: h)
                     .clipped()
+
+                Image("icon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: iconW, height: iconH)
+                    .position(x: iconCenterX, y: iconCenterY)
 
                 Text("Rank up soon?")
                     .font(.custom("Figtree-SemiBold", size: titleFont))
