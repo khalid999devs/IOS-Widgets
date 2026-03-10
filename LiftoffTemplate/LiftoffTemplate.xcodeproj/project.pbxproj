@@ -10,6 +10,12 @@
 		5B3285D22F587C5C0038D08E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EA92F50DE74006BE706 /* WidgetKit.framework */; };
 		5B3285D32F587C5C0038D08E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EAB2F50DE74006BE706 /* SwiftUI.framework */; };
 		5B3285E42F587C5D0038D08E /* NextRankUpWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5B3285D12F587C5B0038D08E /* NextRankUpWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5B804F0C2F5F0EC0003B5851 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EA92F50DE74006BE706 /* WidgetKit.framework */; };
+		5B804F0D2F5F0EC0003B5851 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EAB2F50DE74006BE706 /* SwiftUI.framework */; };
+		5B804F1E2F5F0EC1003B5851 /* BestRankWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5B804F0B2F5F0EC0003B5851 /* BestRankWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5B804F2C2F60B423003B5851 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EA92F50DE74006BE706 /* WidgetKit.framework */; };
+		5B804F2D2F60B423003B5851 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EAB2F50DE74006BE706 /* SwiftUI.framework */; };
+		5B804F3E2F60B424003B5851 /* BestRankWidgetMediumExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5B804F2B2F60B423003B5851 /* BestRankWidgetMediumExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5B82F5A02F5AD2300028F6F6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EA92F50DE74006BE706 /* WidgetKit.framework */; };
 		5B82F5A12F5AD2300028F6F6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EAB2F50DE74006BE706 /* SwiftUI.framework */; };
 		5B82F5B22F5AD2310028F6F6 /* NextRankUpWidgetMediumExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5B82F59F2F5AD2300028F6F6 /* NextRankUpWidgetMediumExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -34,6 +40,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5B3285D02F587C5B0038D08E;
 			remoteInfo = NextRankUpWidgetExtension;
+		};
+		5B804F1C2F5F0EC1003B5851 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BD07E8D2F50DE43006BE706 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B804F0A2F5F0EC0003B5851;
+			remoteInfo = BestRankWidgetExtension;
+		};
+		5B804F3C2F60B424003B5851 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BD07E8D2F50DE43006BE706 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B804F2A2F60B423003B5851;
+			remoteInfo = BestRankWidgetMediumExtension;
 		};
 		5B82F5B02F5AD2310028F6F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -80,7 +100,9 @@
 			dstSubfolderSpec = 13;
 			files = (
 				5BD07EBD2F50DE75006BE706 /* MainLiftoffRankWidgetExtension.appex in Embed Foundation Extensions */,
+				5B804F1E2F5F0EC1003B5851 /* BestRankWidgetExtension.appex in Embed Foundation Extensions */,
 				5BD07F1E2F5362C2006BE706 /* MainLiftoffRankWidgetMascotMediumExtension.appex in Embed Foundation Extensions */,
+				5B804F3E2F60B424003B5851 /* BestRankWidgetMediumExtension.appex in Embed Foundation Extensions */,
 				5BD07EDC2F524BA5006BE706 /* MainLiftoffRankWidgetMascotExtension.appex in Embed Foundation Extensions */,
 				5B3285E42F587C5D0038D08E /* NextRankUpWidgetExtension.appex in Embed Foundation Extensions */,
 				5BD07F3C2F579854006BE706 /* MainLiftoffRankWidgetMediumExtension.appex in Embed Foundation Extensions */,
@@ -93,6 +115,8 @@
 
 /* Begin PBXFileReference section */
 		5B3285D12F587C5B0038D08E /* NextRankUpWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NextRankUpWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B804F0B2F5F0EC0003B5851 /* BestRankWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BestRankWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B804F2B2F60B423003B5851 /* BestRankWidgetMediumExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BestRankWidgetMediumExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B82F59F2F5AD2300028F6F6 /* NextRankUpWidgetMediumExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NextRankUpWidgetMediumExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD07E952F50DE43006BE706 /* LiftoffTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiftoffTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD07EA72F50DE73006BE706 /* MainLiftoffRankWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MainLiftoffRankWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +134,20 @@
 				Info.plist,
 			);
 			target = 5B3285D02F587C5B0038D08E /* NextRankUpWidgetExtension */;
+		};
+		5B804F212F5F0EC1003B5851 /* Exceptions for "BestRankWidget" folder in "BestRankWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5B804F0A2F5F0EC0003B5851 /* BestRankWidgetExtension */;
+		};
+		5B804F3F2F60B424003B5851 /* Exceptions for "BestRankWidgetMedium" folder in "BestRankWidgetMediumExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5B804F2A2F60B423003B5851 /* BestRankWidgetMediumExtension */;
 		};
 		5B82F5B52F5AD2310028F6F6 /* Exceptions for "NextRankUpWidgetMedium" folder in "NextRankUpWidgetMediumExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -155,6 +193,22 @@
 				5B3285E72F587C5D0038D08E /* Exceptions for "NextRankUpWidget" folder in "NextRankUpWidgetExtension" target */,
 			);
 			path = NextRankUpWidget;
+			sourceTree = "<group>";
+		};
+		5B804F0E2F5F0EC0003B5851 /* BestRankWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5B804F212F5F0EC1003B5851 /* Exceptions for "BestRankWidget" folder in "BestRankWidgetExtension" target */,
+			);
+			path = BestRankWidget;
+			sourceTree = "<group>";
+		};
+		5B804F2E2F60B423003B5851 /* BestRankWidgetMedium */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5B804F3F2F60B424003B5851 /* Exceptions for "BestRankWidgetMedium" folder in "BestRankWidgetMediumExtension" target */,
+			);
+			path = BestRankWidgetMedium;
 			sourceTree = "<group>";
 		};
 		5B82F5A22F5AD2300028F6F6 /* NextRankUpWidgetMedium */ = {
@@ -211,6 +265,24 @@
 			files = (
 				5B3285D32F587C5C0038D08E /* SwiftUI.framework in Frameworks */,
 				5B3285D22F587C5C0038D08E /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B804F082F5F0EC0003B5851 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B804F0D2F5F0EC0003B5851 /* SwiftUI.framework in Frameworks */,
+				5B804F0C2F5F0EC0003B5851 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B804F282F60B423003B5851 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B804F2D2F60B423003B5851 /* SwiftUI.framework in Frameworks */,
+				5B804F2C2F60B423003B5851 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +351,8 @@
 				5BD07F2C2F579852006BE706 /* MainLiftoffRankWidgetMedium */,
 				5B3285D42F587C5C0038D08E /* NextRankUpWidget */,
 				5B82F5A22F5AD2300028F6F6 /* NextRankUpWidgetMedium */,
+				5B804F0E2F5F0EC0003B5851 /* BestRankWidget */,
+				5B804F2E2F60B423003B5851 /* BestRankWidgetMedium */,
 				5BD07EA82F50DE74006BE706 /* Frameworks */,
 				5BD07E962F50DE43006BE706 /* Products */,
 			);
@@ -294,6 +368,8 @@
 				5BD07F292F579852006BE706 /* MainLiftoffRankWidgetMediumExtension.appex */,
 				5B3285D12F587C5B0038D08E /* NextRankUpWidgetExtension.appex */,
 				5B82F59F2F5AD2300028F6F6 /* NextRankUpWidgetMediumExtension.appex */,
+				5B804F0B2F5F0EC0003B5851 /* BestRankWidgetExtension.appex */,
+				5B804F2B2F60B423003B5851 /* BestRankWidgetMediumExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,6 +406,50 @@
 			);
 			productName = NextRankUpWidgetExtension;
 			productReference = 5B3285D12F587C5B0038D08E /* NextRankUpWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		5B804F0A2F5F0EC0003B5851 /* BestRankWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B804F222F5F0EC1003B5851 /* Build configuration list for PBXNativeTarget "BestRankWidgetExtension" */;
+			buildPhases = (
+				5B804F072F5F0EC0003B5851 /* Sources */,
+				5B804F082F5F0EC0003B5851 /* Frameworks */,
+				5B804F092F5F0EC0003B5851 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5B804F0E2F5F0EC0003B5851 /* BestRankWidget */,
+			);
+			name = BestRankWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = BestRankWidgetExtension;
+			productReference = 5B804F0B2F5F0EC0003B5851 /* BestRankWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		5B804F2A2F60B423003B5851 /* BestRankWidgetMediumExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B804F402F60B424003B5851 /* Build configuration list for PBXNativeTarget "BestRankWidgetMediumExtension" */;
+			buildPhases = (
+				5B804F272F60B423003B5851 /* Sources */,
+				5B804F282F60B423003B5851 /* Frameworks */,
+				5B804F292F60B423003B5851 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5B804F2E2F60B423003B5851 /* BestRankWidgetMedium */,
+			);
+			name = BestRankWidgetMediumExtension;
+			packageProductDependencies = (
+			);
+			productName = BestRankWidgetMediumExtension;
+			productReference = 5B804F2B2F60B423003B5851 /* BestRankWidgetMediumExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		5B82F59E2F5AD2300028F6F6 /* NextRankUpWidgetMediumExtension */ = {
@@ -372,6 +492,8 @@
 				5BD07F3B2F579854006BE706 /* PBXTargetDependency */,
 				5B3285E32F587C5D0038D08E /* PBXTargetDependency */,
 				5B82F5B12F5AD2310028F6F6 /* PBXTargetDependency */,
+				5B804F1D2F5F0EC1003B5851 /* PBXTargetDependency */,
+				5B804F3D2F60B424003B5851 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				5BD07E972F50DE43006BE706 /* LiftoffTemplate */,
@@ -484,6 +606,12 @@
 					5B3285D02F587C5B0038D08E = {
 						CreatedOnToolsVersion = 26.2;
 					};
+					5B804F0A2F5F0EC0003B5851 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					5B804F2A2F60B423003B5851 = {
+						CreatedOnToolsVersion = 26.2;
+					};
 					5B82F59E2F5AD2300028F6F6 = {
 						CreatedOnToolsVersion = 26.2;
 					};
@@ -525,12 +653,28 @@
 				5BD07F282F579852006BE706 /* MainLiftoffRankWidgetMediumExtension */,
 				5B3285D02F587C5B0038D08E /* NextRankUpWidgetExtension */,
 				5B82F59E2F5AD2300028F6F6 /* NextRankUpWidgetMediumExtension */,
+				5B804F0A2F5F0EC0003B5851 /* BestRankWidgetExtension */,
+				5B804F2A2F60B423003B5851 /* BestRankWidgetMediumExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5B3285CF2F587C5B0038D08E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B804F092F5F0EC0003B5851 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B804F292F60B423003B5851 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -589,6 +733,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5B804F072F5F0EC0003B5851 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B804F272F60B423003B5851 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5B82F59B2F5AD2300028F6F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -638,6 +796,16 @@
 			isa = PBXTargetDependency;
 			target = 5B3285D02F587C5B0038D08E /* NextRankUpWidgetExtension */;
 			targetProxy = 5B3285E22F587C5D0038D08E /* PBXContainerItemProxy */;
+		};
+		5B804F1D2F5F0EC1003B5851 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B804F0A2F5F0EC0003B5851 /* BestRankWidgetExtension */;
+			targetProxy = 5B804F1C2F5F0EC1003B5851 /* PBXContainerItemProxy */;
+		};
+		5B804F3D2F60B424003B5851 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B804F2A2F60B423003B5851 /* BestRankWidgetMediumExtension */;
+			targetProxy = 5B804F3C2F60B424003B5851 /* PBXContainerItemProxy */;
 		};
 		5B82F5B12F5AD2310028F6F6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -716,6 +884,126 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.khalid.cpp.LiftoffTemplate.NextRankUpWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5B804F1F2F5F0EC1003B5851 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 474KTUB9B4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BestRankWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BestRankWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.khalid.cpp.LiftoffTemplate.BestRankWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B804F202F5F0EC1003B5851 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 474KTUB9B4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BestRankWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BestRankWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.khalid.cpp.LiftoffTemplate.BestRankWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5B804F412F60B424003B5851 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 474KTUB9B4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BestRankWidgetMedium/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BestRankWidgetMedium;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.khalid.cpp.LiftoffTemplate.BestRankWidgetMedium;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B804F422F60B424003B5851 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 474KTUB9B4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BestRankWidgetMedium/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BestRankWidgetMedium;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.khalid.cpp.LiftoffTemplate.BestRankWidgetMedium;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1220,6 +1508,24 @@
 			buildConfigurations = (
 				5B3285E52F587C5D0038D08E /* Debug */,
 				5B3285E62F587C5D0038D08E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B804F222F5F0EC1003B5851 /* Build configuration list for PBXNativeTarget "BestRankWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B804F1F2F5F0EC1003B5851 /* Debug */,
+				5B804F202F5F0EC1003B5851 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B804F402F60B424003B5851 /* Build configuration list for PBXNativeTarget "BestRankWidgetMediumExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B804F412F60B424003B5851 /* Debug */,
+				5B804F422F60B424003B5851 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

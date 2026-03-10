@@ -155,3 +155,4 @@ struct NextRankUpWidget: Widget {
         return i
     }())
 }
+
