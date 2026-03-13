@@ -204,6 +204,20 @@ private func verticalFillGradient(
     )
 }
 
+private func imageMaskingGradient(
+    topHex: UInt32,
+    bottomHex: UInt32
+) -> LinearGradient {
+    LinearGradient(
+        stops: [
+            .init(color: Color(hex: topHex), location: 0.5),
+            .init(color: Color(hex: bottomHex), location: 0.7)
+        ],
+        startPoint: .top,
+        endPoint: .bottom
+    )
+}
+
 private func latestRankupCard(
     imageName: String,
     title: String,
@@ -248,7 +262,7 @@ private func latestRankupCard(
                         .resizable()
                         .scaledToFit()
 
-                    verticalFillGradient(
+                    imageMaskingGradient(
                         topHex: strokeStartHex,
                         bottomHex: strokeEndHex
                     )

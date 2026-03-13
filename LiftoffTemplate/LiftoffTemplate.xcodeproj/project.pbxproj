@@ -19,6 +19,9 @@
 		5B804F4E2F62FAFD003B5851 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EA92F50DE74006BE706 /* WidgetKit.framework */; };
 		5B804F4F2F62FAFD003B5851 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EAB2F50DE74006BE706 /* SwiftUI.framework */; };
 		5B804F602F62FAFF003B5851 /* LatestRankupMediumExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5B804F4D2F62FAFD003B5851 /* LatestRankupMediumExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5B804F6C2F6330AF003B5851 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EA92F50DE74006BE706 /* WidgetKit.framework */; };
+		5B804F6D2F6330AF003B5851 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EAB2F50DE74006BE706 /* SwiftUI.framework */; };
+		5B804F7E2F6330B1003B5851 /* LatestRankupExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5B804F6B2F6330AF003B5851 /* LatestRankupExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5B82F5A02F5AD2300028F6F6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EA92F50DE74006BE706 /* WidgetKit.framework */; };
 		5B82F5A12F5AD2300028F6F6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD07EAB2F50DE74006BE706 /* SwiftUI.framework */; };
 		5B82F5B22F5AD2310028F6F6 /* NextRankUpWidgetMediumExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5B82F59F2F5AD2300028F6F6 /* NextRankUpWidgetMediumExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -64,6 +67,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5B804F4C2F62FAFD003B5851;
 			remoteInfo = LatestRankupMediumExtension;
+		};
+		5B804F7C2F6330B1003B5851 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BD07E8D2F50DE43006BE706 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B804F6A2F6330AF003B5851;
+			remoteInfo = LatestRankupExtension;
 		};
 		5B82F5B02F5AD2310028F6F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -113,6 +123,7 @@
 				5B804F1E2F5F0EC1003B5851 /* BestRankWidgetExtension.appex in Embed Foundation Extensions */,
 				5BD07F1E2F5362C2006BE706 /* MainLiftoffRankWidgetMascotMediumExtension.appex in Embed Foundation Extensions */,
 				5B804F3E2F60B424003B5851 /* BestRankWidgetMediumExtension.appex in Embed Foundation Extensions */,
+				5B804F7E2F6330B1003B5851 /* LatestRankupExtension.appex in Embed Foundation Extensions */,
 				5BD07EDC2F524BA5006BE706 /* MainLiftoffRankWidgetMascotExtension.appex in Embed Foundation Extensions */,
 				5B804F602F62FAFF003B5851 /* LatestRankupMediumExtension.appex in Embed Foundation Extensions */,
 				5B3285E42F587C5D0038D08E /* NextRankUpWidgetExtension.appex in Embed Foundation Extensions */,
@@ -129,6 +140,7 @@
 		5B804F0B2F5F0EC0003B5851 /* BestRankWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BestRankWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B804F2B2F60B423003B5851 /* BestRankWidgetMediumExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BestRankWidgetMediumExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B804F4D2F62FAFD003B5851 /* LatestRankupMediumExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LatestRankupMediumExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B804F6B2F6330AF003B5851 /* LatestRankupExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LatestRankupExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B82F59F2F5AD2300028F6F6 /* NextRankUpWidgetMediumExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NextRankUpWidgetMediumExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD07E952F50DE43006BE706 /* LiftoffTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiftoffTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD07EA72F50DE73006BE706 /* MainLiftoffRankWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MainLiftoffRankWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +179,13 @@
 				Info.plist,
 			);
 			target = 5B804F4C2F62FAFD003B5851 /* LatestRankupMediumExtension */;
+		};
+		5B804F7F2F6330B1003B5851 /* Exceptions for "LatestRankup" folder in "LatestRankupExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5B804F6A2F6330AF003B5851 /* LatestRankupExtension */;
 		};
 		5B82F5B52F5AD2310028F6F6 /* Exceptions for "NextRankUpWidgetMedium" folder in "NextRankUpWidgetMediumExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -236,6 +255,14 @@
 				5B804F612F62FAFF003B5851 /* Exceptions for "LatestRankupMedium" folder in "LatestRankupMediumExtension" target */,
 			);
 			path = LatestRankupMedium;
+			sourceTree = "<group>";
+		};
+		5B804F6E2F6330AF003B5851 /* LatestRankup */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5B804F7F2F6330B1003B5851 /* Exceptions for "LatestRankup" folder in "LatestRankupExtension" target */,
+			);
+			path = LatestRankup;
 			sourceTree = "<group>";
 		};
 		5B82F5A22F5AD2300028F6F6 /* NextRankUpWidgetMedium */ = {
@@ -322,6 +349,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5B804F682F6330AF003B5851 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B804F6D2F6330AF003B5851 /* SwiftUI.framework in Frameworks */,
+				5B804F6C2F6330AF003B5851 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5B82F59C2F5AD2300028F6F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,6 +426,7 @@
 				5B804F0E2F5F0EC0003B5851 /* BestRankWidget */,
 				5B804F2E2F60B423003B5851 /* BestRankWidgetMedium */,
 				5B804F502F62FAFD003B5851 /* LatestRankupMedium */,
+				5B804F6E2F6330AF003B5851 /* LatestRankup */,
 				5BD07EA82F50DE74006BE706 /* Frameworks */,
 				5BD07E962F50DE43006BE706 /* Products */,
 			);
@@ -408,6 +445,7 @@
 				5B804F0B2F5F0EC0003B5851 /* BestRankWidgetExtension.appex */,
 				5B804F2B2F60B423003B5851 /* BestRankWidgetMediumExtension.appex */,
 				5B804F4D2F62FAFD003B5851 /* LatestRankupMediumExtension.appex */,
+				5B804F6B2F6330AF003B5851 /* LatestRankupExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -512,6 +550,28 @@
 			productReference = 5B804F4D2F62FAFD003B5851 /* LatestRankupMediumExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		5B804F6A2F6330AF003B5851 /* LatestRankupExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B804F802F6330B1003B5851 /* Build configuration list for PBXNativeTarget "LatestRankupExtension" */;
+			buildPhases = (
+				5B804F672F6330AF003B5851 /* Sources */,
+				5B804F682F6330AF003B5851 /* Frameworks */,
+				5B804F692F6330AF003B5851 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5B804F6E2F6330AF003B5851 /* LatestRankup */,
+			);
+			name = LatestRankupExtension;
+			packageProductDependencies = (
+			);
+			productName = LatestRankupExtension;
+			productReference = 5B804F6B2F6330AF003B5851 /* LatestRankupExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5B82F59E2F5AD2300028F6F6 /* NextRankUpWidgetMediumExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B82F5B62F5AD2310028F6F6 /* Build configuration list for PBXNativeTarget "NextRankUpWidgetMediumExtension" */;
@@ -555,6 +615,7 @@
 				5B804F1D2F5F0EC1003B5851 /* PBXTargetDependency */,
 				5B804F3D2F60B424003B5851 /* PBXTargetDependency */,
 				5B804F5F2F62FAFF003B5851 /* PBXTargetDependency */,
+				5B804F7D2F6330B1003B5851 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				5BD07E972F50DE43006BE706 /* LiftoffTemplate */,
@@ -676,6 +737,9 @@
 					5B804F4C2F62FAFD003B5851 = {
 						CreatedOnToolsVersion = 26.2;
 					};
+					5B804F6A2F6330AF003B5851 = {
+						CreatedOnToolsVersion = 26.2;
+					};
 					5B82F59E2F5AD2300028F6F6 = {
 						CreatedOnToolsVersion = 26.2;
 					};
@@ -720,6 +784,7 @@
 				5B804F0A2F5F0EC0003B5851 /* BestRankWidgetExtension */,
 				5B804F2A2F60B423003B5851 /* BestRankWidgetMediumExtension */,
 				5B804F4C2F62FAFD003B5851 /* LatestRankupMediumExtension */,
+				5B804F6A2F6330AF003B5851 /* LatestRankupExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -747,6 +812,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5B804F4B2F62FAFD003B5851 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B804F692F6330AF003B5851 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -826,6 +898,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5B804F672F6330AF003B5851 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5B82F59B2F5AD2300028F6F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -890,6 +969,11 @@
 			isa = PBXTargetDependency;
 			target = 5B804F4C2F62FAFD003B5851 /* LatestRankupMediumExtension */;
 			targetProxy = 5B804F5E2F62FAFF003B5851 /* PBXContainerItemProxy */;
+		};
+		5B804F7D2F6330B1003B5851 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B804F6A2F6330AF003B5851 /* LatestRankupExtension */;
+			targetProxy = 5B804F7C2F6330B1003B5851 /* PBXContainerItemProxy */;
 		};
 		5B82F5B12F5AD2310028F6F6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1148,6 +1232,66 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.khalid.cpp.LiftoffTemplate.LatestRankupMedium;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5B804F812F6330B1003B5851 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 474KTUB9B4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LatestRankup/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LatestRankup;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.khalid.cpp.LiftoffTemplate.LatestRankup;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B804F822F6330B1003B5851 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 474KTUB9B4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LatestRankup/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LatestRankup;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.khalid.cpp.LiftoffTemplate.LatestRankup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1679,6 +1823,15 @@
 			buildConfigurations = (
 				5B804F632F62FAFF003B5851 /* Debug */,
 				5B804F642F62FAFF003B5851 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B804F802F6330B1003B5851 /* Build configuration list for PBXNativeTarget "LatestRankupExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B804F812F6330B1003B5851 /* Debug */,
+				5B804F822F6330B1003B5851 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
