@@ -180,6 +180,9 @@ struct LatestRankupMediumEntryView: View {
                             circleStrokeColor: 0xB969D1
                         )
                     }
+                    if cards.count <= 1 {
+                        unRankedCard(scale: s)
+                    }
                 }
                 .frame(width: rightGroupW, height: rightGroupH)
                 .position(x: rightGroupCenterX, y: rightGroupCenterY)
@@ -302,6 +305,94 @@ private func latestRankupCard(
         .padding(.trailing, 10.0 * s)
     }
     .frame(width: cardW, height: cardH)
+}
+
+private func unrankStrokeGradient() -> AngularGradient {
+    AngularGradient(
+        gradient: Gradient(stops: [
+            .init(color: Color(hex: 0xFDCC1A), location: 0.00),
+            .init(color: Color(hex: 0x8FFFE6), location: 0.25),
+            .init(color: Color(hex: 0xB5C1F3), location: 0.38),
+            .init(color: Color(hex: 0xDC82FF), location: 0.50),
+            .init(color: Color(hex: 0xFE181F), location: 0.75),
+            .init(color: Color(hex: 0xFDCC1A), location: 1.00)
+        ]),
+        center: .center,
+        startAngle: .degrees(0),
+        endAngle: .degrees(360)
+    )
+}
+
+private func unRankedCard(
+    scale s: CGFloat,
+) -> some View {
+    let cardW = 150.0 * s
+    let cardH = 40.0 * s
+    let circleD = 28.8 * s
+    let circleStrokeW = 0.60 * s
+    let corner = 8.0 * s
+    let cardFill = Color(hex: 0x79367E)
+    let cardStroke = unrankStrokeGradient()
+    let titleColor = Color.white.opacity(0.80)
+    let circleFill = Color(hex: 0x311D0A)
+
+    return ZStack(alignment: .topLeading) {
+        RoundedRectangle(cornerRadius: corner, style: .continuous)
+            .fill(cardFill)
+
+        RoundedRectangle(cornerRadius: corner, style: .continuous)
+            .stroke(cardStroke, lineWidth: 1.0)
+
+        HStack(alignment:.center, spacing: 0.0){
+            HStack(alignment: .center, spacing: 6.0 * s) {
+                ZStack {
+                    Circle()
+                        .fill(circleFill)
+                    
+                    ZStack {
+                        Image("bodyFront")
+                            .resizable()
+                            .scaledToFit()
+                        
+                        Image("bodyFrontMuscle")
+                            .resizable()
+                            .scaledToFit()
+                    }
+                    .padding(circleStrokeW * 0.4)
+                }
+                .frame(width: circleD, height: circleD)
+                .clipShape(Circle())
+                .overlay(
+                    Circle()
+                        .stroke(unrankStrokeGradient(), lineWidth: circleStrokeW)
+                )
+                
+                VStack(alignment: .leading, spacing: -2.0 * s) {
+                    Text("Discover your")
+                        .font(.custom("Figtree-SemiBold", size: 10.0 * s))
+                        .foregroundStyle(titleColor)
+                        .lineLimit(1)
+                    Text("next rank?")
+                        .font(.custom("Figtree-SemiBold", size: 10.0 * s))
+                        .foregroundStyle(titleColor)
+                        .lineLimit(1)
+                }
+                .frame(alignment: .leading)
+            }.frame(minWidth: 96.0)
+            
+            Spacer(minLength: 0)
+            Image("unranked")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30.75 * s, height: 28.92 * s)
+        }
+        .padding(.leading, 10.0 * s)
+        .padding(.top, 5.6 * s)
+        .padding(.bottom, 5.6 * s)
+        .padding(.trailing, 8.0 * s)
+    }
+    .frame(width: cardW, height: cardH)
+    .opacity(0.70)
 }
 
 private extension Color {

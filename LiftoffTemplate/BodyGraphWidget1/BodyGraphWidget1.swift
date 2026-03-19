@@ -47,7 +47,7 @@ struct BodyGraphWidget1EntryView: View {
             let originX = (w - layoutW) / 2.0
             let originY = (h - layoutH) / 2.0
 
-            let rankGroupX = originX + (16.0 * s)
+            let rankGroupX = originX + (12.0 * s)
             let rankGroupY = originY + (16.0 * s)
             let rankGroupW = 190.0 * s
             let rankGroupH = 60.0 * s

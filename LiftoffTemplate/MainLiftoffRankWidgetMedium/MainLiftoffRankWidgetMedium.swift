@@ -40,7 +40,7 @@ struct MainLiftoffRankWidgetMediumEntryView: View {
             let originY = (h - layoutH) / 2.0
 
             let panelX = originX + (187.0 * s)
-            let panelY = originY + (26.0 * s)
+            let panelY = originY + (20.0 * s)
             let panelW = 161.0 * s
             let panelH = 181.0 * s
 

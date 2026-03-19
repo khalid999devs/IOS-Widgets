@@ -63,11 +63,70 @@ struct BestRankWidgetMediumEntry: TimelineEntry {
     let configuration: BestRankWidgetMediumConfigurationIntent
 }
 
+enum BestRankMediumMascotBodyPart: String {
+    case legs = "Legs"
+    case arms = "Arms"
+    case back = "Back"
+    case core = "Core"
+    case chest = "Chest"
+    case shoulders = "Shoulders"
+
+    var assetName: String {
+        "jymbo/\(rawValue)"
+    }
+
+    var config: BestRankMediumMascotBodyPartConfig {
+        switch self {
+        case .legs:
+            return .init(height: 102.0, offsetX: 0.0, topY: 68.0)
+        case .arms:
+            return .init(height: 100.0, offsetX: 0.0, topY: 62.0)
+        case .back:
+            return .init(height: 175.0, offsetX: 0.0, topY: -2.0)
+        case .core:
+            return .init(height: 175.0, offsetX: 0.0, topY: -2.0)
+        case .chest:
+            return .init(height: 174.0, offsetX: 0.0, topY: -2.0)
+        case .shoulders:
+            return .init(height: 174.0, offsetX: 0.0, topY: -2.0)
+        }
+    }
+}
+
+struct BestRankMediumMascotBodyPartConfig {
+    let height: CGFloat
+    let offsetX: CGFloat
+    let topY: CGFloat
+}
+
+struct BestRankMediumMascotBodyPartView: View {
+    let part: BestRankMediumMascotBodyPart
+    let scale: CGFloat
+    let originY: CGFloat
+    let widgetWidth: CGFloat
+    let widgetHeight: CGFloat
+
+    var body: some View {
+        let config = part.config
+        let partH = config.height * scale
+        let topY = originY + (config.topY * scale)
+
+        Image(part.assetName)
+            .resizable()
+            .scaledToFit()
+            .frame(height: partH)
+            .frame(width: widgetWidth, height: widgetHeight, alignment: .topLeading)
+            .offset(x: config.offsetX * scale, y: topY)
+            .allowsHitTesting(false)
+    }
+}
+
 struct BestRankWidgetMediumEntryView: View {
     var entry: BestRankWidgetMediumProvider.Entry
 
     var body: some View {
         let mode = entry.configuration.mode ?? .mascot
+        let mascotPart: BestRankMediumMascotBodyPart = .legs
 
         GeometryReader { geo in
             let w = geo.size.width
@@ -88,9 +147,6 @@ struct BestRankWidgetMediumEntryView: View {
             let rankY = originY + (36.33 * s)
             let rankCenterX = rankX + (rankW / 2.0)
             let rankCenterY = rankY + (rankH / 2.0)
-
-            let hindlegH = 102.0 * s
-            let hindlegY = originY + (68.0 * s)
 
             let starW = 36.0 * s
             let starH = 40.0 * s
@@ -158,6 +214,16 @@ struct BestRankWidgetMediumEntryView: View {
                     .position(x: lightCenterX, y: lightCenterY)
                     .allowsHitTesting(false)
 
+                if mode == .mascot {
+                    BestRankMediumMascotBodyPartView(
+                        part: mascotPart,
+                        scale: s,
+                        originY: originY,
+                        widgetWidth: w,
+                        widgetHeight: h
+                    )
+                }
+                
                 VStack(alignment: .leading, spacing: lineSpacing) {
                     Text("Best Muscle Group")
                         .font(.custom("Figtree-Medium", size: textFont))
@@ -165,23 +231,13 @@ struct BestRankWidgetMediumEntryView: View {
                         .opacity(0.80)
                         .lineLimit(1)
 
-                    Text("Legs")
+                    Text(mascotPart.rawValue)
                         .font(.custom("Figtree-Bold", size: boldTextFont))
                         .foregroundStyle(Color.white)
                         .lineLimit(1)
                 }
                 .frame(width: textW, height: textH, alignment: .topLeading)
                 .position(x: textX + (textW / 2.0), y: textY + (textH / 2.0))
-                
-                if mode == .mascot {
-                    Image("hindleg")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: hindlegH)
-                        .frame(width: w, height: h, alignment: .topLeading)
-                        .offset(x: 0, y: hindlegY)
-                        .allowsHitTesting(false)
-                }
 
                 VStack(spacing: 5.0 * s) {
                     ForEach(Array(cards.enumerated()), id: \.offset) { _, card in
@@ -263,20 +319,15 @@ private func rankCard(
                         .fill(Color(hex: 0x0F0A18))
 
                     ZStack {
-                        Image("lowerFrontBg")
+                        Image("bodygraph/lowerFrontBg")
                             .resizable()
                             .scaledToFit()
 
-                        Image("lowerFront")
+                        Image("bodygraph/lowerFront")
                             .resizable()
                             .scaledToFit()
 
                         ZStack {
-                            Image(imageName)
-                                .resizable()
-                                .scaledToFit()
-                                .opacity(0)
-
                             LinearGradient(
                                 stops: [
                                     .init(color: Color(hex: 0xFFE37E), location: 0.2),
@@ -286,7 +337,7 @@ private func rankCard(
                                 endPoint: .bottom
                             )
                             .mask(
-                                Image(imageName)
+                                Image("bodygraph/\(imageName)")
                                     .resizable()
                                     .scaledToFit()
                             )

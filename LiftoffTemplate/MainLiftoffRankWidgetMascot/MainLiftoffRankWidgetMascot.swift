@@ -1,31 +1,62 @@
 import WidgetKit
 import SwiftUI
+import AppIntents
 
-struct Provider: AppIntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        .init(date: .now, configuration: ConfigurationAppIntent())
+enum MainLiftoffRankMode: String, AppEnum {
+    case minimal
+    case mascot
+
+    static var typeDisplayRepresentation: TypeDisplayRepresentation { "Mode" }
+
+    static var caseDisplayRepresentations: [MainLiftoffRankMode: DisplayRepresentation] {
+        [
+            .minimal: "Minimal",
+            .mascot: "Mascot"
+        ]
+    }
+}
+
+struct MainLiftoffRankConfigurationIntent: WidgetConfigurationIntent {
+    static var title: LocalizedStringResource = "Main Liftoff Rank"
+    static var description = IntentDescription("Choose a widget mode")
+
+    @Parameter(title: "Mode")
+    var mode: MainLiftoffRankMode?
+}
+
+struct MainLiftoffRankProvider: AppIntentTimelineProvider {
+    func placeholder(in context: Context) -> MainLiftoffRankEntry {
+        .init(date: .now, configuration: MainLiftoffRankConfigurationIntent())
     }
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
+    func snapshot(
+        for configuration: MainLiftoffRankConfigurationIntent,
+        in context: Context
+    ) async -> MainLiftoffRankEntry {
         .init(date: .now, configuration: configuration)
     }
 
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        let entry = SimpleEntry(date: .now, configuration: configuration)
+    func timeline(
+        for configuration: MainLiftoffRankConfigurationIntent,
+        in context: Context
+    ) async -> Timeline<MainLiftoffRankEntry> {
+        let entry = MainLiftoffRankEntry(date: .now, configuration: configuration)
         let next = Calendar.current.date(byAdding: .minute, value: 30, to: .now) ?? .now.addingTimeInterval(1800)
         return Timeline(entries: [entry], policy: .after(next))
     }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct MainLiftoffRankEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationAppIntent
+    let configuration: MainLiftoffRankConfigurationIntent
 }
 
-struct MainLiftoffRankWidgetMascotEntryView: View {
-    var entry: Provider.Entry
+struct MainLiftoffRankWidgetEntryView: View {
+    var entry: MainLiftoffRankProvider.Entry
 
     var body: some View {
+        let mode = entry.configuration.mode ?? .mascot
+
         GeometryReader { geo in
             let side = min(geo.size.width, geo.size.height)
 
@@ -40,15 +71,7 @@ struct MainLiftoffRankWidgetMascotEntryView: View {
             let badgeW = side * (184.0 / 170.0)
             let badgeH = side * (158.0 / 170.0)
             let badgeX = side * (-7.0 / 170.0)
-            let badgeY = side * (1.0 / 170.0)
-
-            let jymboW = side * (157.34 / 170.0)
-            let jymboBottomPadding = side * (0.0 / 170.0)
-
-            let shading2W = side * (172.0 / 170.0)
-            let shading2H = side * (86.0 / 170.0)
-            let shading2X = side * (-2.0 / 170.0)
-            let shading2Y = side * (90.0 / 170.0)
+            let badgeY = side * ((mode == .mascot ? 1.0 : 6.0) / 170.0)
 
             let titleW = side * (111.0 / 170.0)
             let titleH = side * (12.0 / 170.0)
@@ -59,7 +82,14 @@ struct MainLiftoffRankWidgetMascotEntryView: View {
 
             let shadowBlur = side * (4.0 / 170.0)
 
-        
+            let jymboW = side * (157.34 / 170.0)
+            let jymboBottomPadding = side * (0.0 / 170.0)
+
+            let shading2W = side * (172.0 / 170.0)
+            let shading2H = side * (86.0 / 170.0)
+            let shading2X = side * (-2.0 / 170.0)
+            let shading2Y = side * (90.0 / 170.0)
+
             let jymboEffectW = side * (128.0 / 170.0)
 
             ZStack(alignment: .topLeading) {
@@ -82,7 +112,7 @@ struct MainLiftoffRankWidgetMascotEntryView: View {
                         LinearGradient(
                             stops: [
                                 .init(color: Color(hex: 0xFBA651).opacity(0.0), location: 0.0),
-                                .init(color: Color(hex: 0x9F8181).opacity(1.0), location: 1.0),
+                                .init(color: Color(hex: 0x9F8181).opacity(1.0), location: 1.0)
                             ],
                             startPoint: .top,
                             endPoint: .bottom
@@ -92,35 +122,37 @@ struct MainLiftoffRankWidgetMascotEntryView: View {
                     .offset(x: shadingX, y: shadingY)
                     .blendMode(.multiply)
 
-                Image("jymbo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: jymboW)
-                    .padding(.bottom, jymboBottomPadding)
-                    .frame(width: geo.size.width, height: geo.size.height, alignment: .bottom)
+                if mode == .mascot {
+                    Image("jymbo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: jymboW)
+                        .padding(.bottom, jymboBottomPadding)
+                        .frame(width: geo.size.width, height: geo.size.height, alignment: .bottom)
 
-                Rectangle()
-                    .fill(
-                        LinearGradient(
-                            stops: [
-                                .init(color: Color(hex: 0xEDE0D2).opacity(0.0), location: 0.0),
-                                .init(color: Color(hex: 0x9F8181).opacity(1.0), location: 1.0),
-                            ],
-                            startPoint: .top,
-                            endPoint: .bottom
+                    Rectangle()
+                        .fill(
+                            LinearGradient(
+                                stops: [
+                                    .init(color: Color(hex: 0xEDE0D2).opacity(0.0), location: 0.0),
+                                    .init(color: Color(hex: 0x9F8181).opacity(1.0), location: 1.0)
+                                ],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
                         )
-                    )
-                    .frame(width: shading2W, height: shading2H)
-                    .offset(x: shading2X, y: shading2Y)
-                    .blendMode(.multiply)
+                        .frame(width: shading2W, height: shading2H)
+                        .offset(x: shading2X, y: shading2Y)
+                        .blendMode(.multiply)
 
-                Image("jymboEffect")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: jymboEffectW)
-                    .padding(.bottom, jymboBottomPadding)
-                    .frame(width: geo.size.width, height: geo.size.height, alignment: .bottom)
-                    .allowsHitTesting(false)
+                    Image("jymboEffect")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: jymboEffectW)
+                        .padding(.bottom, jymboBottomPadding)
+                        .frame(width: geo.size.width, height: geo.size.height, alignment: .bottom)
+                        .allowsHitTesting(false)
+                }
 
                 Text("Check out those gains")
                     .font(.custom("Figtree-SemiBold", size: titleFont))
@@ -139,8 +171,12 @@ struct MainLiftoffRankWidgetMascot: Widget {
     let kind: String = "MainLiftoffRankWidgetMascot"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            MainLiftoffRankWidgetMascotEntryView(entry: entry)
+        AppIntentConfiguration(
+            kind: kind,
+            intent: MainLiftoffRankConfigurationIntent.self,
+            provider: MainLiftoffRankProvider()
+        ) { entry in
+            MainLiftoffRankWidgetEntryView(entry: entry)
         }
         .supportedFamilies([.systemSmall])
         .contentMarginsDisabled()
@@ -159,5 +195,15 @@ private extension Color {
 #Preview(as: .systemSmall) {
     MainLiftoffRankWidgetMascot()
 } timeline: {
-    SimpleEntry(date: .now, configuration: ConfigurationAppIntent())
+    MainLiftoffRankEntry(date: .now, configuration: {
+        var i = MainLiftoffRankConfigurationIntent()
+        i.mode = .mascot
+        return i
+    }())
+
+    MainLiftoffRankEntry(date: .now, configuration: {
+        var i = MainLiftoffRankConfigurationIntent()
+        i.mode = .minimal
+        return i
+    }())
 }
