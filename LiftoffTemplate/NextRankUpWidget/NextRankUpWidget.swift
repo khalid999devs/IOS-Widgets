@@ -64,6 +64,11 @@ struct NextRankUpWidgetEntryView: View {
             let starsH = 100.0 * s
             let starsX = originX + (12.0 * s)
             let starsY = originY + (29.0 * s)
+            
+            let starArrowsW = 140 * s
+            let starArrowsH = 122.0 * s
+            let starArrowsX = originX + (20.0 * s)
+            let starArrowsY = originY + (30.0 * s)
 
             let titleW = 111.0 * s
             let titleH = 14.0 * s
@@ -107,19 +112,25 @@ struct NextRankUpWidgetEntryView: View {
                     .frame(width: titleW, height: titleH, alignment: .center)
                     .position(x: titleCenterX, y: titleCenterY)
 
-                Image("stars")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: starsW, height: starsH)
-                    .offset(x: starsX, y: starsY)
-
                 if (entry.configuration.mode ?? .mascot) == .mascot {
+                    Image("stars")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: starsW, height: starsH)
+                        .offset(x: starsX, y: starsY)
+                    
                     Image("jymbo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: jymboW, height: jymboH)
                         .position(x: jymboCenterX, y: jymboCenterY)
                         .allowsHitTesting(false)
+                }else{
+                    Image("StarArrows")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: starArrowsW, height: starArrowsH)
+                        .offset(x: starArrowsX, y: starArrowsY)
                 }
             }
             .frame(width: w, height: h)

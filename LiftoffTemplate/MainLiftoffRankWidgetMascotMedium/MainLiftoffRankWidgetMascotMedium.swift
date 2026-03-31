@@ -56,6 +56,7 @@ struct MainLiftoffRankWidgetMascotMediumEntryView: View {
 
     var body: some View {
         let mode = entry.configuration.mode ?? .mascot
+        let isUnranked = true
 
         GeometryReader { geo in
             let w = geo.size.width
@@ -109,6 +110,14 @@ struct MainLiftoffRankWidgetMascotMediumEntryView: View {
             let jymboH = 192.04 * s
             let jymboX = originX + (8.77 * s)
             let jymboY = originY + (40.0 * s)
+            
+            let ridgeW = 108.54 * s
+            let ridgeH = 125.71 * s
+            let ridgeX = originX + (32.0 * s)
+            let ridgeY = originY + ((mode == .mascot ? 10.0 : 24.0) * s)
+            let ridgeCenterX = ridgeX + (ridgeW / 2.0)
+            let ridgeCenterY = ridgeY + (ridgeH / 2.0)
+            let ridgeBlur = 25.0 * s
 
             let jymboEffectW = 128.0 * s
             let jymboEffectX = originX + ((8.77 + ((157.34 - 128.0) / 2.0)) * s)
@@ -117,15 +126,45 @@ struct MainLiftoffRankWidgetMascotMediumEntryView: View {
             ZStack(alignment: .topLeading) {
                 Color(hex: 0x261E24)
 
-                LeaderboardPanel(scale: s)
-                    .frame(width: panelW, height: panelH, alignment: .top)
-                    .offset(x: panelX, y: panelY)
+                if(!isUnranked){
+                    LeaderboardPanel(scale: s)
+                        .frame(width: panelW, height: panelH, alignment: .top)
+                        .offset(x: panelX, y: panelY)
+                }else{
+                    UnrankedPanel(scale: s)
+                        .frame(width: panelW, height: h, alignment: .top)
+                        .offset(x: panelX, y: mode == .mascot ? 6 * s : -4 * s)
+                }
 
-                Circle()
-                    .fill(Color(hex: 0xFF8400))
-                    .frame(width: glowW, height: glowH)
-                    .blur(radius: glowBlur)
-                    .offset(x: glowX, y: glowY)
+                if(!isUnranked){
+                    Circle()
+                        .fill(Color(hex: 0xFF8400))
+                        .frame(width: glowW, height: glowH)
+                        .blur(radius: glowBlur)
+                        .offset(x: glowX, y: glowY)
+                }else{
+                    RidgeGlowShape()
+                        .fill(
+                            AngularGradient(
+                                gradient: Gradient(stops: [
+                                    .init(color: Color(hex: 0xFF1519), location: 0.00),
+                                    .init(color: Color(hex: 0xD049FF), location: 0.17),
+                                    .init(color: Color(hex: 0x6278FF), location: 0.32),
+                                    .init(color: Color(hex: 0x36FFD2), location: 0.50),
+                                    .init(color: Color(hex: 0xFFCB12), location: 0.67),
+                                    .init(color: Color(hex: 0xD7F8F9), location: 0.82),
+                                    .init(color: Color(hex: 0xFF6826), location: 1.00)
+                                ]),
+                                center: .center,
+                                startAngle: .degrees(90),
+                                endAngle: .degrees(450)
+                            )
+                        )
+                        .frame(width: ridgeW, height: ridgeH)
+                        .blur(radius: ridgeBlur)
+                        .position(x: ridgeCenterX, y: ridgeCenterY)
+                        .allowsHitTesting(false)
+                }
 
                 Image("gold")
                     .resizable()
@@ -239,6 +278,54 @@ private struct FitText: View {
     }
 }
 
+private struct RidgeGlowShape: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+
+        path.move(to: CGPoint(x: rect.minX, y: rect.height * 0.22))
+        path.addLine(to: CGPoint(x: rect.width * 0.50, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.height * 0.22))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.height * 0.78))
+        path.addLine(to: CGPoint(x: rect.width * 0.50, y: rect.maxY))
+        path.addLine(to: CGPoint(x: rect.minX, y: rect.height * 0.78))
+        path.closeSubpath()
+
+        return path
+    }
+}
+
+private struct UnrankedPanel: View {
+    let scale: CGFloat
+    
+    var body: some View {
+        let gap = 6.0
+        let headerW = 111.0 * scale
+        let headerH = 12.0 * scale
+        let headerFont = 10.0 * scale
+
+        VStack(spacing: gap) {
+            Text("Discover your rank?")
+                .font(.custom("Figtree-SemiBold", size: headerFont))
+                .foregroundStyle(Color.white)
+                .opacity(0.80)
+                .frame(width: headerW, height: headerH, alignment: .center)
+                .frame(maxWidth: .infinity, alignment: .center)
+
+            VStack(spacing: gap) {
+                LeaderboardRowUnranked(
+                    rankText: "#???",
+                    nameText: "You",
+                    subtitleText: "Top ??% in the world!",
+                    avatarAssetName: "person3",
+                    scale: scale
+                )
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }
+    
+}
+
 private struct LeaderboardPanel: View {
     let scale: CGFloat
 
@@ -290,6 +377,121 @@ private struct LeaderboardPanel: View {
                 )
             }
         }
+    }
+}
+
+private struct LeaderboardRowUnranked: View {
+    let rankText: String
+    let nameText: String
+    let subtitleText: String?
+    let avatarAssetName: String?
+    let scale: CGFloat
+
+    var body: some View {
+        let rowH = 46.0 * scale
+        let corner = 8.0 * scale
+
+        let padL = 10.0 * scale
+        let padR = 6.0 * scale
+        let padT = 6.0 * scale
+        let padB = 6.0 * scale
+
+        let innerGap = 4.0
+        let avatarSize = 25.0 * scale
+
+        let fillOpacity = 0.50
+        let strokeW = 0.5 * scale
+        let shadowBlur = 8.0 * scale
+
+        let rankFont = 20.0 * scale
+        let nameFont = 12.0 * scale
+        let subtitleFont = 8.0 * scale
+
+        let rankColor = Color(hex: 0xFAFAFA)
+        let nameColor = Color(hex: 0xFFFFFF)
+        let subtitleColor = Color(hex: 0xFFFFFF)
+
+        ZStack {
+            RoundedRectangle(cornerRadius: corner, style: .continuous)
+                .fill(
+                    LinearGradient(
+                        stops: [
+                            .init(color: Color(hex: 0x4A5157).opacity(1.0), location: 0.0),
+                            .init(color: Color(hex: 0x354556).opacity(0.5), location: 1.0),
+                        ],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
+                .opacity(fillOpacity)
+                .overlay(
+                    RoundedRectangle(cornerRadius: corner, style: .continuous)
+                        .stroke(
+                            AngularGradient(
+                                stops: [
+                                    .init(color: Color(hex: 0xFF1519), location: 0.00),
+                                    .init(color: Color(hex: 0xD049FF), location: 0.17),
+                                    .init(color: Color(hex: 0x6278FF), location: 0.32),
+                                    .init(color: Color(hex: 0x36FFD2), location: 0.50),
+                                    .init(color: Color(hex: 0xFFCB12), location: 0.67),
+                                    .init(color: Color(hex: 0xD7F8F9), location: 0.82),
+                                    .init(color: Color(hex: 0xFF6826), location: 1.00)
+                                ],
+                                center: .center,
+                                startAngle: .degrees(90),
+                                endAngle: .degrees(450)
+                            ),
+                            lineWidth: strokeW
+                        )
+                )
+                .shadow(color: Color(hex: 0x5CA7FF).opacity(1.0), radius: shadowBlur, x: 0, y: 0)
+
+            HStack(spacing: innerGap) {
+                VStack(alignment: .leading) {
+                    HStack(alignment: .center, spacing: innerGap) {
+                        Text(rankText)
+                            .font(.custom("Figtree-SemiBold", size: rankFont))
+                            .foregroundStyle(rankColor)
+                            .opacity(1.0)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                            .allowsTightening(true)
+                            .layoutPriority(2)
+
+                        FitText(
+                            text: nameText,
+                            fontName: "Figtree-SemiBold",
+                            size: nameFont,
+                            minScale: 0.90,
+                            color: nameColor,
+                            opacity: 0.80
+                        )
+                        .layoutPriority(1)
+                    }
+
+                    if let subtitleText {
+                        FitText(
+                            text: subtitleText,
+                            fontName: "Figtree-SemiBold",
+                            size: subtitleFont,
+                            minScale: 0.90,
+                            color: subtitleColor,
+                            opacity: 0.80
+                        )
+                        .layoutPriority(1)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+                AvatarCircle(assetName: avatarAssetName)
+                    .frame(width: avatarSize, height: avatarSize)
+            }
+            .padding(.leading, padL)
+            .padding(.trailing, padR)
+            .padding(.top, padT)
+            .padding(.bottom, padB)
+        }
+        .frame(height: rowH)
     }
 }
 

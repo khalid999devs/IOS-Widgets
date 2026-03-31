@@ -56,6 +56,7 @@ struct MainLiftoffRankWidgetEntryView: View {
 
     var body: some View {
         let mode = entry.configuration.mode ?? .mascot
+        let isUnranked = false
 
         GeometryReader { geo in
             let side = min(geo.size.width, geo.size.height)
@@ -92,14 +93,46 @@ struct MainLiftoffRankWidgetEntryView: View {
 
             let jymboEffectW = side * (128.0 / 170.0)
 
+            let ridgeW = side * (108.54 / 170.0)
+            let ridgeH = side * (125.71 / 170.0)
+            let ridgeX = side * (31.0 / 170.0)
+            let ridgeY = side * ((mode == .mascot ? 20.0 : 22.0) / 170.0)
+            let ridgeCenterX = ridgeX + (ridgeW / 2.0)
+            let ridgeCenterY = ridgeY + (ridgeH / 2.0)
+            let ridgeBlur = side * (25.0 / 170.0)
+
             ZStack(alignment: .topLeading) {
                 Color(hex: 0x261E24)
 
-                Circle()
-                    .fill(Color(hex: 0xFF8400))
-                    .frame(width: d, height: d)
-                    .blur(radius: blur)
-                    .position(x: geo.size.width / 2.0, y: geo.size.height / 2.0)
+                if !isUnranked {
+                    Circle()
+                        .fill(Color(hex: 0xFF8400))
+                        .frame(width: d, height: d)
+                        .blur(radius: blur)
+                        .position(x: geo.size.width / 2.0, y: geo.size.height / 2.0)
+                } else {
+                    RidgeGlowShape()
+                        .fill(
+                            AngularGradient(
+                                gradient: Gradient(stops: [
+                                    .init(color: Color(hex: 0xFF1519), location: 0.00),
+                                    .init(color: Color(hex: 0xD049FF), location: 0.17),
+                                    .init(color: Color(hex: 0x6278FF), location: 0.32),
+                                    .init(color: Color(hex: 0x36FFD2), location: 0.50),
+                                    .init(color: Color(hex: 0xFFCB12), location: 0.67),
+                                    .init(color: Color(hex: 0xD7F8F9), location: 0.82),
+                                    .init(color: Color(hex: 0xFF6826), location: 1.00)
+                                ]),
+                                center: .center,
+                                startAngle: .degrees(90),
+                                endAngle: .degrees(450)
+                            )
+                        )
+                        .frame(width: ridgeW, height: ridgeH)
+                        .blur(radius: ridgeBlur)
+                        .position(x: ridgeCenterX, y: ridgeCenterY)
+                        .allowsHitTesting(false)
+                }
 
                 Image("gold")
                     .resizable()
@@ -154,7 +187,7 @@ struct MainLiftoffRankWidgetEntryView: View {
                         .allowsHitTesting(false)
                 }
 
-                Text("Check out those gains")
+                Text(isUnranked ? "Discover your rank?" : "Check out those gains")
                     .font(.custom("Figtree-SemiBold", size: titleFont))
                     .foregroundStyle(Color.white)
                     .opacity(0.80)
@@ -164,6 +197,22 @@ struct MainLiftoffRankWidgetEntryView: View {
             }
         }
         .containerBackground(for: .widget) { Color.clear }
+    }
+}
+
+private struct RidgeGlowShape: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+
+        path.move(to: CGPoint(x: rect.minX, y: rect.height * 0.22))
+        path.addLine(to: CGPoint(x: rect.width * 0.50, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.height * 0.22))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.height * 0.78))
+        path.addLine(to: CGPoint(x: rect.width * 0.50, y: rect.maxY))
+        path.addLine(to: CGPoint(x: rect.minX, y: rect.height * 0.78))
+        path.closeSubpath()
+
+        return path
     }
 }
 

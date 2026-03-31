@@ -235,7 +235,6 @@ private func latestRankupCard(
     let circleD = 28.8 * s
     let circleStrokeW = 0.60 * s
     let corner = 8.0 * s
-    let cardFill = Color(hex: 0x79367E)
     let cardStroke = verticalFillGradient(
         topHex: strokeStartHex,
         bottomHex: strokeEndHex
@@ -246,7 +245,14 @@ private func latestRankupCard(
 
     return ZStack(alignment: .topLeading) {
         RoundedRectangle(cornerRadius: corner, style: .continuous)
-            .fill(cardFill)
+            .fill(LinearGradient(
+                stops: [
+                    .init(color: Color(hex: 0x79367E), location: 0.0),
+                    .init(color: Color(hex: 0x79367E), location: 1.0)
+                ],
+                startPoint: .leading,
+                endPoint: .trailing
+            ))
 
         RoundedRectangle(cornerRadius: corner, style: .continuous)
             .stroke(cardStroke, lineWidth: 1.0)
@@ -331,14 +337,20 @@ private func unRankedCard(
     let circleD = 28.8 * s
     let circleStrokeW = 0.60 * s
     let corner = 8.0 * s
-    let cardFill = Color(hex: 0x79367E)
     let cardStroke = unrankStrokeGradient()
     let titleColor = Color.white.opacity(0.80)
     let circleFill = Color(hex: 0x311D0A)
 
     return ZStack(alignment: .topLeading) {
         RoundedRectangle(cornerRadius: corner, style: .continuous)
-            .fill(cardFill)
+            .fill(LinearGradient(
+                stops: [
+                    .init(color: Color(hex: 0x79367E), location: 0.0),
+                    .init(color: Color(hex: 0x79367E), location: 1.0)
+                ],
+                startPoint: .leading,
+                endPoint: .trailing
+            ))
 
         RoundedRectangle(cornerRadius: corner, style: .continuous)
             .stroke(cardStroke, lineWidth: 1.0)

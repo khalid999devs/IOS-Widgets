@@ -152,8 +152,8 @@ struct LatestRankupEntryView: View {
 
                         LinearGradient(
                             stops: [
-                                .init(color: Color(hex: 0xFFE37E), location: mode == .mascot ? 0.64 : 0.6),
-                                .init(color: Color(hex: 0xE6AE08), location: 0.8)
+                                .init(color: Color(hex: 0xFFE37E), location: 0.0),
+                                .init(color: Color(hex: 0xE6AE08), location: 1.0)
                             ],
                             startPoint: .top,
                             endPoint: .bottom
